@@ -6,7 +6,7 @@ const port = process.env.PORT || 3001;
 require('dotenv').config();
 require('./config/database');
 
-const userRouter = require('./Heart-jwt-auth/routes/users');
+const userRouter = require('./routes/users');
 const cors = require('cors')
 
 
