@@ -7,6 +7,7 @@ require('dotenv').config();
 require('./config/database');
 
 const userRouter = require('./routes/users');
+const workoutRouter = require('./routes/workouts');
 const cors = require('cors')
 
 
@@ -15,6 +16,7 @@ app.use(logger('dev'));
 app.use(express.json());
 
 app.use('/api/users', userRouter);
+app.use('/api/workouts', workoutRouter);
 
 app.listen(port, ()=> {
     console.log(`Express is listening on port ${port}.`)
