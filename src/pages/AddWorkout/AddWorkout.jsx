@@ -1,66 +1,139 @@
-import React, { Component } from 'react'
-import NavBar from '../../components/NavBar/NavBar'
+import React, { Component } from 'react';
+import NavBar from '../../components/NavBar/NavBar';
 
 export default class AddWorkout extends Component {
-    state= {
-        invalidForm: true,
-        formData: {
-            name: '',
-            reps: '',
-            genre: '',
-        }
-    }
+  state = {
+    invalidForm: true,
+    formData: {
+      name: '',
+      reps: '',
+      genre: '',
+    },
+  };
 
-    formRef = React.createRef();
+  formRef = React.createRef();
 
-    render() {
-        return (
-    <>
-                <NavBar />
-                <div class="row">
-            <form class="col s12">
-            <div class="row">
-            <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-             <label for="first_name">First Name</label>
+  handleChange = (e) => {
+    const formData = {
+      ...this.state.formData,
+      [e.target.name]: e.target.value,
+    };
+    this.setState({
+      formData,
+      invalidForm: !this.formRef.current.checkValidity(),
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.handleAddWorkout(this.state.formData);
+  };
+
+  render() {
+    return (
+      <>
+        <NavBar />
+        <div className="row">
+          <form
+            className="col s12"
+            ref={this.formRef}
+            onSubmit={this.handleSubmit}
+          >
+            <div className="row">
+              <div className="input-field col s6">
+                <input
+                  name="name"
+                  id="workout_name"
+                  type="text"
+                  className="active"
+                  value={this.state.formData.name}
+                  onChange={this.handleChange}
+                  required
+                />
+                <label htmlFor="workout_name">Workout Name</label>
+              </div>
             </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+            <div className="row">
+              <div className="input-field col s6">
+                <input
+                  name="reps"
+                  type="Number"
+                  id="reps"
+                  className="active"
+                  value={this.state.formData.reps}
+                  onChange={this.handleChange}
+                  required
+                />
+                <label htmlFor="reps">Reps</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s6">
+              <p>
+                <label>
+                  <input
+                    className="with-gap"
+                    name="genre"
+                    value="Upper Body"
+                    onChange={this.handleChange}
+                    type="radio"
+                  />
+                  <span>Upper Body</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input
+                    className="with-gap"
+                    name="genre"
+                    value="Lower Body"
+                    onChange={this.handleChange}
+                    type="radio"
+                  />
+                  <span>Lower Body</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input
+                    className="with-gap"
+                    name="genre"
+                    value="Abs"
+                    onChange={this.handleChange}
+                    type="radio"
+                  />
+                  <span>Abs</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input
+                    className="with-gap"
+                    name="genre"
+                    value="Back"
+                    onChange={this.handleChange}
+                    type="radio"
+                  />
+                  <span>Back</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input
+                    className="with-gap"
+                    name="genre"
+                    value="Cardio"
+                    onChange={this.handleChange}
+                    type="radio"
+                  />
+                  <span>Cardio</span>
+                </label>
+              </p>
+              </div>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
-                    </div>
-                    </div>
-                <div class="row">
-                        <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                     </div>
-                     </div>
-                 <div class="row">
-                        <div class="input-field col s12">
-                     <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                         </div>
-                    </div>
-                    <div class="row">
-                                    <div class="col s12">
-                                    This is an inline input field:
-                                    <div class="input-field inline">
-                                <input id="email_inline" type="email" class="validate">
-                            <label for="email_inline">Email</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                        </div>
-                     </div>
-                    </div>
-                    </form>
-                </div>
-     </>
-        )
-    }
+      </>
+    );
+  }
 }
-

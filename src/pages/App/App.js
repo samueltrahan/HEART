@@ -5,6 +5,8 @@ import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
+import AddWorkout from '../AddWorkout/AddWorkout';
+import * as workoutAPI from '../../services/workout-api'
 
 class App extends Component {
   state = {
@@ -18,6 +20,13 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
+  }
+
+  handleAddWorkout = async newWorkoutData => {
+    const newWorkout = await workoutAPI.create(newWorkoutData);
+    this.setState(state => ({
+      workouts: [...state.workouts, newWorkout]
+    }), () => this.props.history.push('/workouts'));
   }
 
   render () {
@@ -39,6 +48,9 @@ class App extends Component {
             handleSignupOrLogin={this.handleSignupOrLogin}
           />
         }/>
+        <Route exact path='/workouts/add' render={() =>
+        <AddWorkout handleAddWorkout={this.handleAddWorkout} />
+        } />
       </>
     );
   }

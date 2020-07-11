@@ -12,7 +12,7 @@ const workoutSchema = new Schema({
         required: true
     },
     genre: {
-        type: String,
+        type: String
     },
     user: {
         type: Schema.Types.ObjectId,
