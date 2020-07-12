@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddWorkout.css'
 import NavBar from '../../components/NavBar/NavBar';
 
 export default class AddWorkout extends Component {
@@ -13,7 +14,7 @@ export default class AddWorkout extends Component {
 
   formRef = React.createRef();
 
-  handleChange = (e) => {
+  handleChange = e => {
     const formData = {
       ...this.state.formData,
       [e.target.name]: e.target.value,
@@ -24,7 +25,7 @@ export default class AddWorkout extends Component {
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.handleAddWorkout(this.state.formData);
   };
@@ -55,82 +56,24 @@ export default class AddWorkout extends Component {
             </div>
             <div className="row">
               <div className="input-field col s6">
-                <input
-                  name="reps"
-                  type="Number"
-                  id="reps"
-                  className="active"
-                  value={this.state.formData.reps}
-                  onChange={this.handleChange}
-                  required
-                />
-                <label htmlFor="reps">Reps</label>
+                <p>
+                  <label className="add-btn">
+                    <span><h5>Bench Press</h5>
+                    <a href="/workouts/add" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </span> 
+                  </label>
+                </p>
               </div>
             </div>
-            <div className="row">
-              <div className="input-field col s6">
-              <p>
-                <label>
-                  <input
-                    className="with-gap"
-                    name="genre"
-                    value="Upper Body"
-                    onChange={this.handleChange}
-                    type="radio"
-                  />
-                  <span>Upper Body</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input
-                    className="with-gap"
-                    name="genre"
-                    value="Lower Body"
-                    onChange={this.handleChange}
-                    type="radio"
-                  />
-                  <span>Lower Body</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input
-                    className="with-gap"
-                    name="genre"
-                    value="Abs"
-                    onChange={this.handleChange}
-                    type="radio"
-                  />
-                  <span>Abs</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input
-                    className="with-gap"
-                    name="genre"
-                    value="Back"
-                    onChange={this.handleChange}
-                    type="radio"
-                  />
-                  <span>Back</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input
-                    className="with-gap"
-                    name="genre"
-                    value="Cardio"
-                    onChange={this.handleChange}
-                    type="radio"
-                  />
-                  <span>Cardio</span>
-                </label>
-              </p>
-              </div>
-            </div>
+
+            <button
+              type="submit"
+              className=" btn red"
+              disabled={this.state.invalidForm}
+            >
+              <i className="material-icons left">add</i>
+              Add Workout
+            </button>
           </form>
         </div>
       </>

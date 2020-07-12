@@ -7,10 +7,12 @@ import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
 import AddWorkout from '../AddWorkout/AddWorkout';
 import * as workoutAPI from '../../services/workout-api'
+import WorkoutListPage from '../WorkoutList/WorkoutListPage'
 
 class App extends Component {
   state = {
-    user: userService.getUser()
+    user: userService.getUser(),
+    workouts: [],
   }
 
   handleLogout = () => {
@@ -27,6 +29,11 @@ class App extends Component {
     this.setState(state => ({
       workouts: [...state.workouts, newWorkout]
     }), () => this.props.history.push('/workouts'));
+  }
+
+  async componentDidMount() {
+    const workouts = await workoutAPI.getAll();
+    this.setState({workouts});
   }
 
   render () {
@@ -50,6 +57,11 @@ class App extends Component {
         }/>
         <Route exact path='/workouts/add' render={() =>
         <AddWorkout handleAddWorkout={this.handleAddWorkout} />
+        } />
+        <Route exact path='/workouts' render={() =>
+        <WorkoutListPage 
+        workouts={this.state.workouts}
+        />
         } />
       </>
     );

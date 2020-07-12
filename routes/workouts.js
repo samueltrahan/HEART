@@ -3,9 +3,9 @@ const router = express.Router();
 const workoutCtrl = require('../controllers/workouts');
 
 
+router.get('/', workoutCtrl.index)
 
-
-router.post('/', workoutCtrl.create);
+router.post('/', checkAuth, workoutCtrl.create);
 
 function checkAuth(req, res, next) {
     if (req.user) return next();
