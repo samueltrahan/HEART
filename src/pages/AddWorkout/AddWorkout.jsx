@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './AddWorkout.css';
 import NavBar from '../../components/NavBar/NavBar';
+import Workouts from '../Workouts/Workouts'
+import Reps from '../Reps/Reps'
 
 export default class AddWorkout extends Component {
   state = {
@@ -48,7 +50,7 @@ export default class AddWorkout extends Component {
           ref={this.formRef}
           onSubmit={this.handleSubmit}
         >
-          <div className="row">
+             <div className="row">
             <div className="input-field col s6">
               <input
                 name="name"
@@ -62,24 +64,8 @@ export default class AddWorkout extends Component {
               <label htmlFor="workout_name">Workout Name</label>
             </div>
           </div>
-          <div className="row">
-            <div className="input-field col s6">
-              <p>
-                <label className="add-btn">
-                  <span>
-                    <h5>Bench Press</h5>
-                    <button
-                      onClick={this.handleWorkoutSubmit}
-                      className="btn-floating btn-small waves-effect waves-light red"
-                    >
-                      <i className="material-icons">add</i>
-                    </button>
-                  </span>
-                </label>
-              </p>
-            </div>
-          </div>
-
+            <Workouts invalidForm={this.invalidForm} formRef={this.formRef} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+            <Reps invalidForm={this.invalidForm} formRef={this.formRef} handleChange={this.handleChange}/>
           <button
             type="submit"
             className=" btn red"

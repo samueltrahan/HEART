@@ -8,6 +8,7 @@ require('./config/database');
 
 const userRouter = require('./routes/users');
 const workoutRouter = require('./routes/workouts');
+const todoRouter = require('./routes/todos');
 const cors = require('cors')
 
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use('/api/users', userRouter);
 app.use('/api/workouts', workoutRouter);
+app.use('/api/todos', todoRouter);
 
 app.listen(port, ()=> {
     console.log(`Express is listening on port ${port}.`)
