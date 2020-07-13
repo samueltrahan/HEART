@@ -7,12 +7,15 @@ import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
 import AddWorkout from '../AddWorkout/AddWorkout';
 import * as workoutAPI from '../../services/workout-api'
+import * as todoAPI from '../../services/todo-api'
 import WorkoutListPage from '../WorkoutList/WorkoutListPage'
+import AddTodo from '../AddTodo/AddTodo';
 
 class App extends Component {
   state = {
     user: userService.getUser(),
     workouts: [],
+    todos: [],
   }
 
   handleLogout = () => {
@@ -29,6 +32,13 @@ class App extends Component {
     this.setState(state => ({
       workouts: [...state.workouts, newWorkout]
     }), () => this.props.history.push('/workouts'));
+  }
+
+  handleAddTodo = async newTodoData => {
+    const newTodo = await todoAPI.create(newTodoData);
+    this.setState(state => ({
+      todos: [...state.todos, newTodo]
+    }), () => this.props.history.push('/todos'));
   }
 
   async componentDidMount() {
@@ -63,6 +73,10 @@ class App extends Component {
         workouts={this.state.workouts}
         />
         } />
+        <Route exact path='/todos/add' render={() =>
+        <AddTodo handleAddTodo={this.handleAddTodo}/>
+        }
+        />
       </>
     );
   }

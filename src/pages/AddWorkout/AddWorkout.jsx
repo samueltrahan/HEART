@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './AddWorkout.css';
 import NavBar from '../../components/NavBar/NavBar';
-import Workouts from '../Workouts/Workouts'
-import Reps from '../Reps/Reps'
+import Workouts from '../Workouts/Workouts';
+import AddedWorkouts from '../Workouts/AddedWorkouts';
 
 export default class AddWorkout extends Component {
   state = {
@@ -34,10 +34,12 @@ export default class AddWorkout extends Component {
     this.props.handleAddWorkout(this.state.formData);
   };
 
-  handleWorkoutSubmit = () => {
-    const workout = this.state.formData;
-    this.setState(() => {
-      return [...workout.workouts, { id: workout._id, workouts: workout }];
+  addWorkout = (newWorkout) => {
+    this.setState({
+      formData: {
+        ...this.state.formData,
+        workouts: [...this.state.formData.workouts, newWorkout],
+      },
     });
   };
 
@@ -50,7 +52,7 @@ export default class AddWorkout extends Component {
           ref={this.formRef}
           onSubmit={this.handleSubmit}
         >
-             <div className="row">
+          <div className="row">
             <div className="input-field col s6">
               <input
                 name="name"
@@ -64,8 +66,11 @@ export default class AddWorkout extends Component {
               <label htmlFor="workout_name">Workout Name</label>
             </div>
           </div>
-            <Workouts invalidForm={this.invalidForm} formRef={this.formRef} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-            <Reps invalidForm={this.invalidForm} formRef={this.formRef} handleChange={this.handleChange}/>
+          <AddedWorkouts addedWorkouts={this.state.formData.workouts} />
+          <Workouts
+            addWorkout={this.addWorkout}
+            formRef={this.formRef}
+          />
           <button
             type="submit"
             className=" btn red"
