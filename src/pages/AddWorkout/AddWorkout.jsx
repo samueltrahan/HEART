@@ -64,12 +64,12 @@ export default class AddWorkout extends Component {
                 required
               />
               <label htmlFor="workout_name">Workout Name</label>
-            </div>
-          </div>
-          <AddedWorkouts addedWorkouts={this.state.formData.workouts} />
+            
+          <AddedWorkouts addedWorkouts={this.state.formData.workouts} handleChange={this.handleChange}/>
           <Workouts
             addWorkout={this.addWorkout}
             formRef={this.formRef}
+            handleChange={this.handleChange}
           />
           <button
             type="submit"
@@ -77,8 +77,10 @@ export default class AddWorkout extends Component {
             disabled={this.state.invalidForm}
           >
             <i className="material-icons left">add</i>
-            Add Workout
+            Finish Workout
           </button>
+          </div>
+          </div>
         </form>
       </>
     );

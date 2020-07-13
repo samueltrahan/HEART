@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Workout = ({ addWorkout, formRef, name }) => {
+const Workout = ({ addWorkout, formRef, name, handleChange }) => {
   const [reps, setReps] = useState(0);
 
   return (
@@ -9,7 +9,7 @@ const Workout = ({ addWorkout, formRef, name }) => {
         <p>
           <label className="add-btn">
             <span>
-              <h5>{name}</h5>
+              <h6>{name}</h6>
               <input
                 onChange={event => setReps(event.target.value)}
                 value={reps}

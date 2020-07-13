@@ -6,7 +6,7 @@ export default function Workouts(props) {
   return (
     <div>
       {WORKOUTS.map(workout => (
-        <Workout addWorkout={props.addWorkout} name={workout} />
+        <Workout addWorkout={props.addWorkout} name={workout} handleChange={props.handleChange}/>
       ))}
     </div>
   );
