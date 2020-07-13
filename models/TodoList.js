@@ -8,7 +8,11 @@ const todolistSchema = new Schema({
     },
     completed: {
         type: Boolean
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 }, {
     timestamps: true
 })

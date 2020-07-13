@@ -1,14 +1,15 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const logger = require('morgan');
 const port = process.env.PORT || 3001;
 
 require('dotenv').config();
-require('./config/database');
+require('./controllers/users')
+require('./config/database')
 
-const userRouter = require('./routes/users');
-const workoutRouter = require('./routes/workouts');
-const todoRouter = require('./routes/todos');
+
+
 const cors = require('cors')
 
 
@@ -16,9 +17,13 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/api/users', userRouter);
-app.use('/api/workouts', workoutRouter);
-app.use('/api/todos', todoRouter);
+app.use('/api/workouts', require('./routes/api/workouts'));
+app.use('/api/todos', require('./routes/api/todos'));
+app.use('/api/users', require('./routes/api/users'));
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 app.listen(port, ()=> {
     console.log(`Express is listening on port ${port}.`)

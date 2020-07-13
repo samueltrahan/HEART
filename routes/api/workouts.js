@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const workoutCtrl = require('../controllers/workouts');
+const workoutCtrl = require('../../controllers/workouts');
 
 
 router.get('/', workoutCtrl.index)
-
+router.use(require('../../config/auth'))
 router.post('/', checkAuth, workoutCtrl.create);
 
 function checkAuth(req, res, next) {
