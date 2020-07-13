@@ -68,7 +68,6 @@ export default class AddWorkout extends Component {
           <AddedWorkouts addedWorkouts={this.state.formData.workouts} handleChange={this.handleChange}/>
           <Workouts
             addWorkout={this.addWorkout}
-            formRef={this.formRef}
             handleChange={this.handleChange}
           />
           <button

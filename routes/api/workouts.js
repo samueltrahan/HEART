@@ -4,8 +4,11 @@ const workoutCtrl = require('../../controllers/workouts');
 
 
 router.get('/', workoutCtrl.index)
+
 router.use(require('../../config/auth'))
-router.post('/', checkAuth, workoutCtrl.create);
+
+router.post('/', workoutCtrl.create);
+
 
 function checkAuth(req, res, next) {
     if (req.user) return next();

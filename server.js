@@ -17,9 +17,10 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
+app.use('/api/users', require('./routes/api/users'));
+app.use(require('./config/auth'));
 app.use('/api/workouts', require('./routes/api/workouts'));
 app.use('/api/todos', require('./routes/api/todos'));
-app.use('/api/users', require('./routes/api/users'));
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Workout = ({ addWorkout, formRef, name, handleChange }) => {
+const Workout = ({ addWorkout, name }) => {
   const [reps, setReps] = useState(0);
 
   return (
@@ -15,6 +15,7 @@ const Workout = ({ addWorkout, formRef, name, handleChange }) => {
                 value={reps}
               />
               <button
+                type="button"
                 onClick={() => addWorkout({ name, reps })}
                 className="btn-floating btn-small waves-effect waves-light red"
               >

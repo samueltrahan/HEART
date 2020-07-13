@@ -1,5 +1,5 @@
 const Workout = require('../models/workout');
-// const WorkoutType = require('../models/workoutTypes');
+
 
 
 module.exports = {
@@ -8,7 +8,8 @@ module.exports = {
 }
 
 function create(req, res) {
-    req.body.user = req.user._id
+    // console.log(req.body, '!!!!!!!!!')
+    // req.body.user = req.user._id
     Workout.create(req.body)
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)});

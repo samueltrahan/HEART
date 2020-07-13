@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AddedWorkout = ({ name, reps }) => (
+const AddedWorkout = ({ name, reps, handleChange }) => (
   <>
-    <div>Name: {name}</div>
-    <div>Reps: {reps}</div>
+    <div onChange={handleChange}>Name: {name}</div>
+    <div onChange={handleChange}>Reps: {reps}</div>
   </>
 );
 
