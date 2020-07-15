@@ -29,6 +29,7 @@ class App extends Component {
 
   handleAddWorkout = async newWorkoutData => {
     const newWorkout = await workoutAPI.create(newWorkoutData);
+    console.log(newWorkout);
     this.setState(state => ({
       workouts: [...state.workouts, newWorkout]
     }), () => this.props.history.push('/workouts'));
@@ -66,15 +67,23 @@ class App extends Component {
           />
         }/>
         <Route exact path='/workouts/add' render={() =>
+        userService.getUser() ?
         <AddWorkout handleAddWorkout={this.handleAddWorkout} />
+        :
+        <Redirect to='/login' />
         } />
+
         <Route exact path='/workouts' render={() =>
         <WorkoutListPage 
         workouts={this.state.workouts}
         />
         } />
         <Route exact path='/todos/add' render={() =>
-        <AddTodo handleAddTodo={this.handleAddTodo}/>
+          userService.getUser() ?
+        <AddTodo handleAddTodo={this.handleAddTodo}
+        />
+        :
+        <Redirect to='/login' />
         }
         />
       </>

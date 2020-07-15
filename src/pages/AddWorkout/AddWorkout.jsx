@@ -4,32 +4,29 @@ import NavBar from '../../components/NavBar/NavBar';
 import Workouts from '../Workouts/Workouts';
 import AddedWorkouts from '../Workouts/AddedWorkouts';
 
-export default class AddWorkout extends Component {
+class AddWorkout extends Component {
   state = {
     invalidForm: true,
     formData: {
       name: '',
       workouts: [],
-      reps: '',
-      genre: '',
     },
   };
 
   formRef = React.createRef();
 
-  handleChange = e => {
+  handleChange = (e) => {
     const formData = {
       ...this.state.formData,
       [e.target.name]: e.target.value,
     };
-
     this.setState({
       formData,
       invalidForm: !this.formRef.current.checkValidity(),
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAddWorkout(this.state.formData);
   };
@@ -85,3 +82,5 @@ export default class AddWorkout extends Component {
     );
   }
 }
+
+export default AddWorkout

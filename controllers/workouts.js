@@ -8,9 +8,9 @@ module.exports = {
 }
 
 function create(req, res) {
-    // console.log(req.body, '!!!!!!!!!')
-    // req.body.user = req.user._id
+    req.body.user = req.user._id
     Workout.create(req.body)
+    .then(workout => {console.log(workout, '!!!!!!')})
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)});
 }

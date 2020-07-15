@@ -8,7 +8,7 @@ const NavBar = ({ user, handleLogout }) => {
                 <ul id="nav-mobile" className="right">
                     <li><a href="/workouts/add" className="nav-link-b">Add a Workout</a></li>
                     <li><a href="/workouts" className="nav-link-b">Workout List</a></li>
-                    <li><a href="/todos/add" className="nav-link-b">Add Todo</a></li>
+                    <li><a href="/todos/add" className="nav-link-b">Get Done List</a></li>
                     <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>
                     <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
                 </ul>
