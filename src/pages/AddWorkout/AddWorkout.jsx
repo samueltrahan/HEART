@@ -6,14 +6,14 @@ import AddedWorkouts from '../Workouts/AddedWorkouts';
 
 class AddWorkout extends Component {
   state = {
-    invalidForm: true,
+    //invalidForm: true,
     formData: {
       name: '',
       workouts: [],
     },
   };
 
-  formRef = React.createRef();
+  //formRef = React.createRef();
 
   handleChange = (e) => {
     const formData = {
@@ -22,7 +22,7 @@ class AddWorkout extends Component {
     };
     this.setState({
       formData,
-      invalidForm: !this.formRef.current.checkValidity(),
+     //invalidForm: !this.formRef.current.checkValidity(),
     });
   };
 
@@ -46,7 +46,7 @@ class AddWorkout extends Component {
         <NavBar />
         <form
           className="col s12"
-          ref={this.formRef}
+          //ref={this.formRef}
           onSubmit={this.handleSubmit}
         >
           <div className="row">
@@ -70,7 +70,7 @@ class AddWorkout extends Component {
           <button
             type="submit"
             className=" btn red"
-            disabled={this.state.invalidForm}
+            //disabled={this.state.invalidForm}
           >
             <i className="material-icons left">add</i>
             Finish Workout

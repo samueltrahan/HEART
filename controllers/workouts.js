@@ -10,13 +10,11 @@ module.exports = {
 function create(req, res) {
     req.body.user = req.user._id
     Workout.create(req.body)
-    .then(workout => {console.log(workout, '!!!!!!')})
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)});
 }
 
 function index(req, res) {
-    req.body.user = req.user._id
     Workout.find({})
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)})

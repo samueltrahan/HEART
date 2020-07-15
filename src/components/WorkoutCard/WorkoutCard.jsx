@@ -10,7 +10,7 @@ export default function WorkoutCard({ workout }) {
             <div className="card-content white-text">
               <span className="card-title">{workout.name}</span>
               <p>
-                Reps: {workout.reps}
+                Reps: {workout.workouts.reps}
                 <br />
               </p>
             </div>

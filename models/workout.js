@@ -8,7 +8,7 @@ const workoutSchema = new Schema({
         required: true
     },
     workouts: {
-        type: [String],
+        type: [],
     },
     user: {
         type: Schema.Types.ObjectId,
