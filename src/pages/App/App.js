@@ -42,6 +42,13 @@ class App extends Component {
     }), () => this.props.history.push('/todos'));
   }
 
+  handleDeleteWorkout = async id => {
+    await workoutAPI.deleteWorkout(id);
+    this.setState(state => ({
+      workouts: state.workouts.filter(m => m._id !== id)
+    }), () => this.props.history.push('/workouts'))
+  }
+
   async componentDidMount() {
     const workouts = await workoutAPI.getAll();
     this.setState({workouts});
@@ -76,6 +83,7 @@ class App extends Component {
         <Route exact path='/workouts' render={() =>
         <WorkoutListPage 
         workouts={this.state.workouts}
+        handleDeleteWorkout={this.handleDeleteWorkout}
         />
         } />
         <Route exact path='/todos/add' render={() =>

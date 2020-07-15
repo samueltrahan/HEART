@@ -7,6 +7,7 @@ import WorkoutCard from '../../components/WorkoutCard/WorkoutCard'
 
 
 export default function WorkoutList(props) {
+   
     return (
         <>
         <NavBar />

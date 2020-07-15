@@ -5,6 +5,7 @@ const Workout = require('../models/workout');
 module.exports = {
     create,
     index,
+    delete: deleteWorkout,
 }
 
 function create(req, res) {
@@ -16,6 +17,12 @@ function create(req, res) {
 
 function index(req, res) {
     Workout.find({})
+    .then(workout => {res.json(workout)})
+    .catch(err => {res.json(err)})
+}
+
+function deleteWorkout(req, res) {
+    Workout.findById(req.params.id)
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)})
 }

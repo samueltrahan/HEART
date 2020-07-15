@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function WorkoutCard({ workout }) {
+export default function WorkoutCard({ workout, handleDeleteWorkout }) {
   return (
     <>
       <div className="row">
@@ -10,11 +10,17 @@ export default function WorkoutCard({ workout }) {
             <div className="card-content white-text">
               <span className="card-title">{workout.name}</span>
               <p>
-                Reps: {workout.workouts.reps}
+                Workout: {workout.workouts[0].name}
+                <br/>
+                Reps: {workout.workouts[0].reps}
                 <br />
               </p>
             </div>
-            <div class="card-action"></div>
+            <div className="card-action"></div>
+          <button type="submit" className="btn red" onClick={() => handleDeleteWorkout(workout._id)}>
+                    <i className="material-icons left">delete</i>    
+                        Delete Workouts
+                    </button>
           </div>
         </div>
       </div>
