@@ -10,6 +10,9 @@ const workoutSchema = new Schema({
     workouts: {
         type: [],
     },
+    cardio: {
+        type: []
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'

@@ -23,3 +23,12 @@ export function deleteWorkout(id) {
     }, {mode: 'cors'})
     .then(res => res.json())
 }
+
+export function update(workout) {
+    return fetch(`${BASE_URL}${workout._id}`, {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(workout)
+    }, {mode: 'cors'})
+    .then(res => res.json())
+}

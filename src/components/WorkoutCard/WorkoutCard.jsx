@@ -20,10 +20,19 @@ export default function WorkoutCard({ workout, handleDeleteWorkout }) {
           <button type="submit" className="btn red" onClick={() => handleDeleteWorkout(workout._id)}>
                     <i className="material-icons left">delete</i>    
                         Delete Workouts
-                    </button>
+            </button>
+            <Link
+                className="btn yellow black-text"
+                to={{
+                    pathname: '/editWorkout',
+                    state: {workout}
+                }}
+                ><i className="material-icons left">build</i>
+                Edit Workout
+                </Link>
+            </div>
           </div>
         </div>
-      </div>
     </>
   );
 }

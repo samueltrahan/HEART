@@ -6,6 +6,8 @@ module.exports = {
     create,
     index,
     delete: deleteWorkout,
+    show,
+    update,
 }
 
 function create(req, res) {
@@ -23,6 +25,18 @@ function index(req, res) {
 
 function deleteWorkout(req, res) {
     Workout.findById(req.params.id)
+    .then(workout => {res.json(workout)})
+    .catch(err => {res.json(err)})
+}
+
+function show(req, res) {
+    Workout.findById(req.params.id)
+    .then(workout => {res.json(workout)})
+    .catch(err => {res.json(err)})
+}
+
+function update(req, res) {
+    Workout.findByIdAndUpdate(req.params.id, res.body, {new: true})
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)})
 }

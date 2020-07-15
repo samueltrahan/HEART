@@ -3,17 +3,20 @@ import './AddWorkout.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Workouts from '../Workouts/Workouts';
 import AddedWorkouts from '../Workouts/AddedWorkouts';
+import Cardio from '../Cardio/Cardio';
+import AddedCardio from '../Cardio/AddedCardio'
 
 class AddWorkout extends Component {
   state = {
-    //invalidForm: true,
+    invalidForm: true,
     formData: {
       name: '',
       workouts: [],
+      cardio: [],
     },
   };
 
-  //formRef = React.createRef();
+  formRef = React.createRef();
 
   handleChange = (e) => {
     const formData = {
@@ -22,7 +25,7 @@ class AddWorkout extends Component {
     };
     this.setState({
       formData,
-     //invalidForm: !this.formRef.current.checkValidity(),
+     invalidForm: !this.formRef.current.checkValidity(),
     });
   };
 
@@ -40,13 +43,22 @@ class AddWorkout extends Component {
     });
   };
 
+  addCardio = (newCardio) => {
+    this.setState({
+      formData: {
+        ...this.state.formData,
+        cardio: [...this.state.formData.cardio, newCardio],
+      }
+    })
+  }
+
   render() {
     return (
       <>
         <NavBar />
         <form
           className="col s12"
-          //ref={this.formRef}
+          ref={this.formRef}
           onSubmit={this.handleSubmit}
         >
           <div className="row">
@@ -61,16 +73,21 @@ class AddWorkout extends Component {
                 required
               />
               <label htmlFor="workout_name">Workout Name</label>
-            
+            <h6>Workouts</h6>
           <AddedWorkouts addedWorkouts={this.state.formData.workouts} handleChange={this.handleChange}/>
+          <h6>Cardio</h6>
+          <AddedCardio addedCardio={this.state.formData.cardio} handleChange={this.handleChange}/>
+          <h3>Workouts</h3>
           <Workouts
             addWorkout={this.addWorkout}
             handleChange={this.handleChange}
           />
+          <h3>Cardio</h3>
+          <Cardio addCardio={this.addCardio}/>
           <button
             type="submit"
             className=" btn red"
-            //disabled={this.state.invalidForm}
+            disabled={this.state.invalidForm}
           >
             <i className="material-icons left">add</i>
             Finish Workout

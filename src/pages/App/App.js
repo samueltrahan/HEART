@@ -10,6 +10,7 @@ import * as workoutAPI from '../../services/workout-api'
 import * as todoAPI from '../../services/todo-api'
 import WorkoutListPage from '../WorkoutList/WorkoutListPage'
 import AddTodo from '../AddTodo/AddTodo';
+import EditWorkout from '../EditWorkouts/EditWorkouts'
 
 class App extends Component {
   state = {
@@ -47,6 +48,16 @@ class App extends Component {
     this.setState(state => ({
       workouts: state.workouts.filter(w => w._id !== id)
     }), () => this.props.history.push('/workouts'))
+  }
+
+  handleUpdateWorkout = async updatedWorkoutData => {
+    const updatedWorkout = await workoutAPI.update(updatedWorkoutData)
+    const newWorkoutArray = this.state.workouts.map(workout =>
+    workout._id === updatedWorkout._id ? updatedWorkout : workout);
+    this.setState(
+      {workouts: newWorkoutArray},
+      () => this.props.history.push('/workouts')
+    )  
   }
 
   async componentDidMount() {
@@ -93,6 +104,10 @@ class App extends Component {
         :
         <Redirect to='/login' />
         }
+        />
+        <Route exact path='/editWorkout' render={({location}) => 
+        <EditWorkout handleUpdateWorkout={this.handleUpdateWorkout} location={location} workouts={this.state.workouts}/>
+        }  
         />
       </>
     );

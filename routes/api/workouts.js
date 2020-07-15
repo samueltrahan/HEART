@@ -9,6 +9,8 @@ router.use(require('../../config/auth'))
 
 router.post('/', checkAuth, workoutCtrl.create);
 router.delete('/:id', checkAuth, workoutCtrl.delete);
+router.get('/"id', checkAuth, workoutCtrl.show);
+router.put('/:id', checkAuth, workoutCtrl.update);
 
 
 function checkAuth(req, res, next) {
