@@ -45,7 +45,7 @@ class App extends Component {
   handleDeleteWorkout = async id => {
     await workoutAPI.deleteWorkout(id);
     this.setState(state => ({
-      workouts: state.workouts.filter(m => m._id !== id)
+      workouts: state.workouts.filter(w => w._id !== id)
     }), () => this.props.history.push('/workouts'))
   }
 

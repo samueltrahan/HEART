@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SingleWorkout from '../../pages/Workouts/SingleWorkout'
 
 export default function WorkoutCard({ workout, handleDeleteWorkout }) {
   return (
@@ -10,10 +11,9 @@ export default function WorkoutCard({ workout, handleDeleteWorkout }) {
             <div className="card-content white-text">
               <span className="card-title">{workout.name}</span>
               <p>
-                Workout: {workout.workouts[0].name}
-                <br/>
-                Reps: {workout.workouts[0].reps}
-                <br />
+                {workout.workouts.map(singleWorkout => (
+                < SingleWorkout  name={singleWorkout.name} reps={singleWorkout.reps}/>
+                ))}
               </p>
             </div>
             <div className="card-action"></div>
