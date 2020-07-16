@@ -105,8 +105,9 @@ class App extends Component {
         <Redirect to='/login' />
         }
         />
-        <Route exact path='/editWorkout' render={({location}) => 
-        <EditWorkout handleUpdateWorkout={this.handleUpdateWorkout} location={location} workouts={this.state.workouts}  />
+        <Route exact path='/editWorkout' render={({location}) => {
+        return this.state.workouts.length ? <EditWorkout handleUpdateWorkout={this.handleUpdateWorkout} location={location} workouts={this.state.workouts}  /> : <>Loading...</>
+        }
         }  
         />
       </>

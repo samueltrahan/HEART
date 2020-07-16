@@ -4,6 +4,7 @@ import SingleWorkout from '../../pages/Workouts/SingleWorkout';
 import SingleCardioWorkout from '../../pages/Cardio/SingleCardioWorkout'
 
 export default function WorkoutCard({ workout, handleDeleteWorkout }) {
+    console.log(workout)
   return (
     <>
       <div className="row">
@@ -30,7 +31,7 @@ export default function WorkoutCard({ workout, handleDeleteWorkout }) {
                 className="btn yellow black-text"
                 to={{
                     pathname: '/editWorkout',
-                    state: {workout},
+                    state: workout.id
                 }}
                 ><i className="material-icons left">build</i>
                 Edit Workout

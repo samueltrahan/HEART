@@ -5,11 +5,11 @@ import CardioExercise from './CardioExercise'
 export default function DisplayExercise({workout, handleChange, handleSubmit}) {
     return (
         <div>
-           {workout.strengthTraining.map((exercise) => (
-               <Exercise  exercise={exercise} handleChange={handleChange} handleSubmit={handleSubmit}/>
+           {workout.strengthTraining.map((exercise, idx) => (
+               <Exercise key={idx} exercise={exercise} handleChange={handleChange} uuid={idx} />
            ))} 
-           {workout.cardio.map((cardioWorkout) => (
-               <CardioExercise cardioWorkout={cardioWorkout} handleChange={handleChange} handleSubmit={handleSubmit}/>
+           {workout.cardio.map((cardioWorkout, idx) => (
+               <CardioExercise key={idx} cardioWorkout={cardioWorkout} handleChange={handleChange} />
            ))}
         </div>
     )

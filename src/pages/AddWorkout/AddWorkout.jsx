@@ -5,6 +5,7 @@ import StrengthExercises from '../Workouts/StrengthExercises';
 import AddedStrengthTrainings from '../Workouts/AddStrengthTrainings';
 import Cardio from '../Cardio/Cardio';
 import AddedCardio from '../Cardio/AddedCardio'
+import {v4 as uuid} from 'uuid';
 
 class AddWorkout extends Component {
   state = {
@@ -31,14 +32,14 @@ class AddWorkout extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleAddWorkout(this.state.formData);
+    this.props.handleAddWorkout({...this.state.formData, id: uuid()});
   };
 
   addStrengthExercise = (newExercise) => {
     this.setState({
       formData: {
         ...this.state.formData,
-        strengthTraining: [...this.state.formData.strengthTraining, newExercise],
+        strengthTraining: [...this.state.formData.strengthTraining, {...newExercise, id: uuid()}],
       },
     });
   };
@@ -47,7 +48,7 @@ class AddWorkout extends Component {
     this.setState({
       formData: {
         ...this.state.formData,
-        cardio: [...this.state.formData.cardio, newCardio],
+        cardio: [...this.state.formData.cardio, {...newCardio,id: uuid()}],
       }
     })
   }
