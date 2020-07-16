@@ -30,7 +30,7 @@ export default function WorkoutCard({ workout, handleDeleteWorkout }) {
                 className="btn yellow black-text"
                 to={{
                     pathname: '/editWorkout',
-                    state: {workout}
+                    state: {workout},
                 }}
                 ><i className="material-icons left">build</i>
                 Edit Workout

@@ -1,40 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react';
+import DisplayExercise from './DisplayExercise';
 
 export default function EditWorkouts(props) {
-console.log(props)
+  const [exercise, setExercise] = useState([]);
 
-    return  (
-        <div>
-            Hello world
-            {props.workouts.map(workout => {
-                return (
-                  <div className="row">
-                  <div className="input-field col s6">
-                    <p>
-                      <label className="add-btn">
-                        <span>
-                          <h6>{workout.stregnthTraining.name}</h6>
-                          <input
-                        
-                            value={workout}
-                          />
-                          <button
-                            type="button"
-                            onClick={() => {}}
-                            className="btn-floating btn-small waves-effect waves-light red"
-                          >
-                            <i className="material-icons">add</i>Update Workout
-                          </button>
-                        </span>
-                      </label>
-                    </p>
-                  </div>
-                </div>
-                )
-            })}
-        </div>
-    )
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.handleUpdateWorkout(exercise);
+  }
+
+  function handleChange(e) {
+    const change = { ...exercise, [e.target.name]: e.target.value };
+    console.log(change);
+    setExercise({
+      change,
+    });
+  }
+
+  return (
+    <div>
+      {props.workouts.map(workout => {
+        return (
+          <div className="row">
+              <form className="col s12" onSubmit={handleSubmit}>
+            <div className="input-field col s3">
+              <p>
+                <label className="add-btn">
+                  <span>
+                    <h3>{workout.name}</h3>
+                    <DisplayExercise
+                      workout={workout}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                    />
+                    <button type="button" onClick={() => {}}>
+                      Update Workout
+                    </button>
+                  </span>
+                </label>
+              </p>
+            </div>
+        </form>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
-
-
-
