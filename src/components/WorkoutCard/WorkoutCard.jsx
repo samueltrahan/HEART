@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SingleWorkout from '../../pages/Workouts/SingleWorkout'
+import SingleWorkout from '../../pages/Workouts/SingleWorkout';
+import SingleCardioWorkout from '../../pages/Cardio/SingleCardioWorkout'
 
 export default function WorkoutCard({ workout, handleDeleteWorkout }) {
   return (
@@ -11,10 +12,14 @@ export default function WorkoutCard({ workout, handleDeleteWorkout }) {
             <div className="card-content white-text">
               <span className="card-title">{workout.name}</span>
               <p>
-                {workout.workouts.map(singleWorkout => (
+                {workout.strengthTraining.map(singleWorkout => (
                 < SingleWorkout  name={singleWorkout.name} reps={singleWorkout.reps}/>
                 ))}
+                {workout.cardio.map(cardioWorkout => (
+                <SingleCardioWorkout name={cardioWorkout.name} distance={cardioWorkout.distance}/>
+                ))}
               </p>
+              {workout.createdAt}
             </div>
             <div className="card-action"></div>
           <button type="submit" className="btn red" onClick={() => handleDeleteWorkout(workout._id)}>

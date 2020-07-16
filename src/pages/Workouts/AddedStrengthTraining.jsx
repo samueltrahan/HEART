@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AddedWorkout = ({ name, reps, handleChange }) => (
+const AddedStrengthTraining = ({ name, reps, handleChange }) => (
   <>
     <div onChange={handleChange}>Name: {name}</div>
     <div onChange={handleChange}>Reps: {reps}</div>
   </>
 );
 
-export default AddedWorkout;
+export default AddedStrengthTraining;

@@ -1,16 +1,14 @@
 import React from 'react'
 
-const SingleWorkout = ({name, reps}) => {
+const SingleWorkout = ({name, distance}) => {
 
     return (
-        <>
-          
         <div>
             <strong>{name} </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Reps:<strong>{reps}</strong>
+            Distance: <strong>{distance}</strong>
             <br />
         </div>
-       </> 
+        
     )
 }
 

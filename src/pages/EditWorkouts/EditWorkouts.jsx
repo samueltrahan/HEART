@@ -1,49 +1,40 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import NavBar from '../../components/NavBar/NavBar'
+import React from 'react'
 
-export default class EditWorkouts extends Component {
-    state ={
-        invalidForm: false,
-        formData: this.props.location.state.workout
-    }
+export default function EditWorkouts(props) {
+console.log(props)
 
-    formRef = React.createRef();
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.handleUpdateWorkout(this.state.formData);
-    }
-
-    handleChange = e => {
-        const formData = {...this.state.formData, [e.target.name]: e.target.value}
-        this.setState({
-            formData,
-            invalidForm: !this.formRef.current.checkValidity()
-        });
-    }
-
-
-    render() {
-        return (
-            <>
-                <NavBar />
-                <div>
-                <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
-                        <div className="row">
-                            <div className="input-field col s6">
-                            <input name="name" id="workout_name" type="text" className="active" value={this.state.formData.name} onChange={this.handleChange} required />
-                            <label className="active" htmlFor="movie_name">Workout Name</label>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="input-field col s6">
-                           
-                            <label className="active" htmlFor="cast">Workouts</label>
-                            </div>
-                        </div>
-                    </form>
+    return  (
+        <div>
+            Hello world
+            {props.workouts.map(workout => {
+                return (
+                  <div className="row">
+                  <div className="input-field col s6">
+                    <p>
+                      <label className="add-btn">
+                        <span>
+                          <h6>{workout.stregnthTraining.name}</h6>
+                          <input
+                        
+                            value={workout}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {}}
+                            className="btn-floating btn-small waves-effect waves-light red"
+                          >
+                            <i className="material-icons">add</i>Update Workout
+                          </button>
+                        </span>
+                      </label>
+                    </p>
+                  </div>
                 </div>
-            </>
-        )
-    }
+                )
+            })}
+        </div>
+    )
 }
+
+
+

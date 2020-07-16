@@ -106,7 +106,7 @@ class App extends Component {
         }
         />
         <Route exact path='/editWorkout' render={({location}) => 
-        <EditWorkout handleUpdateWorkout={this.handleUpdateWorkout} location={location} workouts={this.state.workouts}/>
+        <EditWorkout handleUpdateWorkout={this.handleUpdateWorkout} location={location} workouts={this.state.workouts} />
         }  
         />
       </>

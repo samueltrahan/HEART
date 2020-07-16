@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Workout = ({ addWorkout, name }) => {
+const Workout = ({ addStrengthExercise, name }) => {
   const [reps, setReps] = useState(0);
 
   return (
@@ -16,7 +16,7 @@ const Workout = ({ addWorkout, name }) => {
               />
               <button
                 type="button"
-                onClick={() => addWorkout({ name, reps })}
+                onClick={() => addStrengthExercise({ name, reps })}
                 className="btn-floating btn-small waves-effect waves-light red"
               >
                 <i className="material-icons">add</i>

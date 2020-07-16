@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './AddWorkout.css';
 import NavBar from '../../components/NavBar/NavBar';
-import Workouts from '../Workouts/Workouts';
-import AddedWorkouts from '../Workouts/AddedWorkouts';
+import StrengthExercises from '../Workouts/StrengthExercises';
+import AddedStrengthTrainings from '../Workouts/AddStrengthTrainings';
 import Cardio from '../Cardio/Cardio';
 import AddedCardio from '../Cardio/AddedCardio'
 
@@ -11,7 +11,7 @@ class AddWorkout extends Component {
     invalidForm: true,
     formData: {
       name: '',
-      workouts: [],
+      strengthTraining: [],
       cardio: [],
     },
   };
@@ -34,11 +34,11 @@ class AddWorkout extends Component {
     this.props.handleAddWorkout(this.state.formData);
   };
 
-  addWorkout = (newWorkout) => {
+  addStrengthExercise = (newExercise) => {
     this.setState({
       formData: {
         ...this.state.formData,
-        workouts: [...this.state.formData.workouts, newWorkout],
+        strengthTraining: [...this.state.formData.strengthTraining, newExercise],
       },
     });
   };
@@ -74,12 +74,12 @@ class AddWorkout extends Component {
               />
               <label htmlFor="workout_name">Workout Name</label>
             <h6>Workouts</h6>
-          <AddedWorkouts addedWorkouts={this.state.formData.workouts} handleChange={this.handleChange}/>
+          <AddedStrengthTrainings AddedStrengthExercise={this.state.formData.strengthTraining} handleChange={this.handleChange}/>
           <h6>Cardio</h6>
           <AddedCardio addedCardio={this.state.formData.cardio} handleChange={this.handleChange}/>
           <h3>Workouts</h3>
-          <Workouts
-            addWorkout={this.addWorkout}
+          <StrengthExercises
+            addStrengthExercise={this.addStrengthExercise}
             handleChange={this.handleChange}
           />
           <h3>Cardio</h3>
