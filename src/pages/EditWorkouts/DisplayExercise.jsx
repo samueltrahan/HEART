@@ -9,7 +9,7 @@ export default function DisplayExercise({workout, handleChange, handleSubmit}) {
                <Exercise key={idx} exercise={exercise} handleChange={handleChange} uuid={idx} />
            ))} 
            {workout.cardio.map((cardioWorkout, idx) => (
-               <CardioExercise key={idx} cardioWorkout={cardioWorkout} handleChange={handleChange} />
+               <CardioExercise key={idx} cardioWorkout={cardioWorkout} handleChange={handleChange} uuid={idx}/>
            ))}
         </div>
     )
