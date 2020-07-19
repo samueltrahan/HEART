@@ -17,6 +17,7 @@ class AddWorkout extends Component {
   };
 
   formRef = React.createRef();
+ 
 
   handleChange = (e) => {
     const formData = {

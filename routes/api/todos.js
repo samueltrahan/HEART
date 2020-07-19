@@ -4,7 +4,7 @@ const todosCtrl = require('../../controllers/todos');
 
 
 router.get('/', todosCtrl.index)
-
+router.use(require('../../config/auth'))
 router.post('/', checkAuth, todosCtrl.create);
 
 function checkAuth(req, res, next) {

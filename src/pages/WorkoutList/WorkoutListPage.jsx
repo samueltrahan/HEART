@@ -6,7 +6,6 @@ import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 export default function WorkoutList(props) {
   return (
     <>
-      <NavBar />
       <div>
         {props.workouts.map(workout => (
           <WorkoutCard

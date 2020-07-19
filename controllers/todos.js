@@ -14,7 +14,7 @@ function create(req, res) {
 }
 
 function index(req, res) {
-    req.body.user = req.user._id
+    console.log('got it')
     Todo.find({})
     .then(todo => {res.json(todo)})
     .catch(err => {res.json(err)})

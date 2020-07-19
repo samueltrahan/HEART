@@ -17,6 +17,7 @@ class App extends Component {
     user: userService.getUser(),
     workouts: [],
     todos: [],
+    loading: true
   }
 
   handleLogout = () => {
@@ -40,7 +41,7 @@ class App extends Component {
     const newTodo = await todoAPI.create(newTodoData);
     this.setState(state => ({
       todos: [...state.todos, newTodo]
-    }), () => this.props.history.push('/todos'));
+    }));
   }
 
   handleDeleteWorkout = async id => {
@@ -62,10 +63,18 @@ class App extends Component {
 
   async componentDidMount() {
     const workouts = await workoutAPI.getAll();
-    this.setState({workouts});
+    const todoList = await todoAPI.getAll();
+    this.setState({workouts, todos: todoList, loading: false});
   }
-
+ 
   render () {
+    if(this.state.loading) {
+      return (
+        <div>
+          Loading...
+        </div>
+      )
+    }
     return (
       <>
         <NavBar 
@@ -99,7 +108,7 @@ class App extends Component {
         } />
         <Route exact path='/todos/add' render={() =>
           userService.getUser() ?
-        <AddTodo handleAddTodo={this.handleAddTodo}
+        <AddTodo todos={this.state.todos} handleAddTodo={this.handleAddTodo}
         />
         :
         <Redirect to='/login' />

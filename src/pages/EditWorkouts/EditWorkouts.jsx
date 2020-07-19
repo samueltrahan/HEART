@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DisplayExercise from './DisplayExercise';
+import './EditWorkouts.css'
 
 export default function EditWorkouts(props) {
     const filteredWorkouts = props.workouts.filter((individualWorkouts) => {
