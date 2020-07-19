@@ -5,11 +5,11 @@ import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
-import AddWorkout from '../AddWorkout/AddWorkout';
+import AddWorkout from '../Workouts/AddWorkout';
 import * as workoutAPI from '../../services/workout-api'
 import * as todoAPI from '../../services/todo-api'
 import WorkoutListPage from '../WorkoutList/WorkoutListPage'
-import AddTodo from '../AddTodo/AddTodo';
+import AddTodo from '../Todo/AddTodo';
 import EditWorkout from '../EditWorkouts/EditWorkouts'
 
 class App extends Component {

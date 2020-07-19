@@ -4,7 +4,6 @@ import SingleWorkout from '../../pages/Workouts/SingleWorkout';
 import SingleCardioWorkout from '../../pages/Cardio/SingleCardioWorkout'
 
 export default function WorkoutCard({ workout, handleDeleteWorkout }) {
-    console.log(workout)
   return (
     <>
       <div className="row">

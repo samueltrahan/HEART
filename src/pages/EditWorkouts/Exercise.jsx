@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Exercise({exercise, uuid, handleChange}) {
-    console.log(uuid)
     return (
         <>
             <input name="name" id="name" type="text" className="active" value={exercise.name} onChange={(event) => handleChange(event, uuid, 'strengthTraining')} required/>

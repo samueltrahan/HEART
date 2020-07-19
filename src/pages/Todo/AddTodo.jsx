@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import NavBar from '../../components/NavBar/NavBar';
 import TodoList from '../TodoList/TodoList';
+import {v4 as uuid} from 'uuid';
 
 export default function AddTodo({ handleAddTodo }) {
   const [todos, setTodos] = useState([]);
   const todoNameRef = useRef();
+  
+
+  useEffect(() => {
+
+  }, [])
+
 
   function toggleTodo(id) {
     const newTodos = [...todos];
@@ -13,22 +19,21 @@ export default function AddTodo({ handleAddTodo }) {
     setTodos(newTodos);
   }
 
-  function handleTodoAdd(e) {
+  function handleDisplayingTodoList(e) {
     const name = todoNameRef.current.value;
     if (name === '') return;
-    setTodos(prevTodos => {
-      return [...prevTodos, { id: todos._id, name: name, completed: false }];
+    setTodos((prevTodos) => {
+      return [...prevTodos, { id: uuid(), name: name, completed: false }];
     });
   }
 
   return (
     <>
-      <NavBar />
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
       <h2>Get Done List</h2>
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
       <form>
         <input ref={todoNameRef} type="text" />
-        <button onClick={handleTodoAdd}>Add to List</button>
+        <button onClick={handleDisplayingTodoList}>Add to List</button>
         {/* <button onClick={handleDeleteTodo}></button> */}
         <div>
           <h3>{todos.filter(todo => !todo.complete).length} left to do</h3>

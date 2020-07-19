@@ -7,12 +7,13 @@ export default function EditWorkouts(props) {
     })
     const [exercise, setExercise] = useState(filteredWorkouts);
 
+ const formRef = React.createRef();
 
 
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.handleUpdateWorkout(exercise);
+  function handleSubmit(event) {
+      console.log(exercise)
+      event.preventDefault();
+    props.handleUpdateWorkout({setExercise: exercise});
   }
 
   function handleChange(event, uuid, type) {
@@ -40,7 +41,7 @@ export default function EditWorkouts(props) {
       {exercise.map(workout => {
         return (
           <div className="row">
-              <form className="col s12" onSubmit={handleSubmit}>
+              <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
             <div className="input-field col s3">
               <p>
                 <label className="add-btn">
@@ -51,7 +52,7 @@ export default function EditWorkouts(props) {
                       handleChange={handleChange}
                       handleSubmit={handleSubmit}
                     />
-                    <button type="button" onClick={() => {}}>
+                    <button type="submit">
                       Update Workout
                     </button>
                   </span>

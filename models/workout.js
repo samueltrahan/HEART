@@ -11,7 +11,7 @@ const workoutSchema = new Schema({
         required: true
     },
     strengthTraining: {
-        type: [],
+        type: []
     },
     cardio: {
         type: []

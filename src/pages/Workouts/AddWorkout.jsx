@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './AddWorkout.css';
-import NavBar from '../../components/NavBar/NavBar';
-import StrengthExercises from '../Workouts/StrengthExercises';
-import AddedStrengthTrainings from '../Workouts/AddStrengthTrainings';
+import StrengthExercises from './StrengthExercises';
+import AddedStrengthTrainings from './AddStrengthTrainings';
 import Cardio from '../Cardio/Cardio';
 import AddedCardio from '../Cardio/AddedCardio'
 import {v4 as uuid} from 'uuid';
@@ -56,7 +55,7 @@ class AddWorkout extends Component {
   render() {
     return (
       <>
-        <NavBar />
+      <div className="workout-form">
         <form
           className="col s12"
           ref={this.formRef}
@@ -79,12 +78,16 @@ class AddWorkout extends Component {
           <h6>Cardio</h6>
           <AddedCardio addedCardio={this.state.formData.cardio} handleChange={this.handleChange}/>
           <h3>Workouts</h3>
+          <div className="strengthExercise">
           <StrengthExercises
             addStrengthExercise={this.addStrengthExercise}
             handleChange={this.handleChange}
           />
+          </div>
           <h3>Cardio</h3>
+          <div className="cardio">
           <Cardio addCardio={this.addCardio}/>
+          </div>
           <button
             type="submit"
             className=" btn red"
@@ -96,6 +99,7 @@ class AddWorkout extends Component {
           </div>
           </div>
         </form>
+      </div>
       </>
     );
   }

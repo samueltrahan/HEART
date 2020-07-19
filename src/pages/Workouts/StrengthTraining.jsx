@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddWorkout.css'
 
 const Workout = ({ addStrengthExercise, name }) => {
   const [reps, setReps] = useState(0);
@@ -11,6 +12,7 @@ const Workout = ({ addStrengthExercise, name }) => {
             <span>
               <h6>{name}</h6>
               <input
+                className="reps"
                 onChange={event => setReps(event.target.value)}
                 value={reps}
               />

@@ -1,0 +1,41 @@
+.add-btn {
+    display: -webkit-inline-flex;
+}
+
+.workout-form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.reps {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+.strengthExercise {
+    /* -webkit-column-width: 150px;
+    -moz-column-width: 150px;
+    -o-column-width: 150px;
+    -ms-column-width: 150px;
+    column-width: 150px; */
+    column-count: 5;
+    column-gap: 40px;
+    column-width: 100px;
+    
+    /* -webkit-column-rule-style: solid;
+    -moz-column-rule-style: solid;
+    -o-column-rule-style: solid;
+    -ms-column-rule-style: solid;
+    column-rule-style: solid; */
+}
+
+.cardio {
+    -webkit-column-width: 150px;
+    -moz-column-width: 150px;
+    -o-column-width: 150px;
+    -ms-column-width: 150px;
+    column-width: 150px;
+}
