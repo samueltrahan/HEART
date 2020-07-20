@@ -1,0 +1,19 @@
+.get-done {
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+
+.left-to-do {
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+
+.todo-item {
+    color: white;
+    font-size: 20px;
+    text-shadow: 3px 3px 3px black;
+}
+
+.todo-input {
+    color: white;
+}
