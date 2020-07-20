@@ -6,7 +6,11 @@ import './TodoList.css'
 export default function AddTodo({ handleAddTodo, todos, handleDeleteTodo, handleUpdateTodo }) {
   const [addedTodos, setAddedTodos] = useState(todos);
   const [todoInput, setTodoInput] = useState('');
-  
+ 
+
+  useEffect(() => {
+    setAddedTodos(todos)
+  }, [todos])
 
 function toggleTodo(id) {
   const newTodos = addedTodos.map(todo => {
@@ -20,7 +24,7 @@ function toggleTodo(id) {
     });
   setAddedTodos(newTodos);
   }
-  
+
 function handleSubmit(event) {
   event.preventDefault();
   handleAddTodo(addedTodos)

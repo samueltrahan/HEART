@@ -22,13 +22,13 @@ function index(req, res) {
 }
 
 function deleteTodo(req, res) {
-    Todo.findById(req.params.id)
+    Todo.deleteOne({id: req.params.id})
     .then(todo => {res.json(todo)})
     .catch(err => {res.json(err)})
 }
 
 function update(req, res) {
-    Todo.findByIdAndUpdate(req.params.id, res.body, {new: true})
+    Todo.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(todo => {res.json(todo)})
     .catch(err => {res.json(err)})
 }

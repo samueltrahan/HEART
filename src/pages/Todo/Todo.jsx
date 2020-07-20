@@ -10,7 +10,7 @@ export default function Todo({todo, toggleTodo, handleDeleteTodo}) {
                 <input type="checkbox" checked={todo.complete} onChange={handleTodoClick}/>
             <span className="todo-item">{todo.name}</span>
             </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="submit" className="btn red" onClick={() => handleDeleteTodo(todo._id)}>
+            <button type="button" className="btn red" onClick={() => handleDeleteTodo(todo.id)}>
                     <i className="material-icons left small">delete</i> 
             </button>
         </div>

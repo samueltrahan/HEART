@@ -54,9 +54,12 @@ class App extends Component {
 
   handleDeleteTodo = async id => {
     await todoAPI.deleteTodo(id);
-    this.setState(state => ({
-      todos: state.todos.filter(todo => todo._id !== id)
-    }), () => this.props.history.push('/todos/add'))
+    const filteredTodos = this.state.todos.filter((todo) => {
+      return todo.id !== id
+    })
+    this.setState({
+      todos: filteredTodos
+    })
   }
 
   handleUpdateWorkout = async updatedWorkoutData => {
