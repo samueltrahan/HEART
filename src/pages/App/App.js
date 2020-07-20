@@ -69,6 +69,16 @@ class App extends Component {
     )  
   }
 
+  handleUpdateTodo = async updatedTodoData => {
+    const updatedTodo = await todoAPI.update(updatedTodoData)
+    const newTodoArray = this.state.todos.map(todo => 
+    todo._id === updatedTodo._id ? updatedTodo : todo)
+    this.setState(
+      {todos: newTodoArray},
+      () => this.props.history.push('/todos/add')
+    )
+  }
+
   async componentDidMount() {
     const workouts = await workoutAPI.getAll();
     const todoList = await todoAPI.getAll();
@@ -118,7 +128,7 @@ class App extends Component {
         } />
         <Route exact path='/todos/add' render={() =>
           userService.getUser() ?
-        <AddTodo todos={this.state.todos} handleAddTodo={this.handleAddTodo} handleDeleteTodo={this.handleDeleteTodo}
+        <AddTodo todos={this.state.todos} handleAddTodo={this.handleAddTodo} handleDeleteTodo={this.handleDeleteTodo} handleUpdateTodo={this.handleUpdateTodo}
         />
         :
         <Redirect to='/login' />

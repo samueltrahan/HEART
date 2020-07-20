@@ -13,13 +13,16 @@ export function create(workout) {
 }
 
 export function getAll() {
-    return fetch(BASE_URL, {mode: 'cors'})
+    return fetch(BASE_URL, {
+        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+    }, {mode: 'cors'})
     .then(res => res.json())
 }
 
 export function deleteWorkout(id) {
     return fetch(`${BASE_URL}${id}`, {
         method: 'DELETE',
+        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
     }, {mode: 'cors'})
     .then(res => res.json())
 }
@@ -27,7 +30,7 @@ export function deleteWorkout(id) {
 export function update(workout) {
     return fetch(`${BASE_URL}${workout._id}`, {
         method: 'PUT',
-        headers: {'content-type': 'application/json'},
+        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
         body: JSON.stringify(workout)
     }, {mode: 'cors'})
     .then(res => res.json())

@@ -3,7 +3,7 @@ import TodoList from '../TodoList/TodoList';
 import {v4 as uuid} from 'uuid';
 import './TodoList.css'
 
-export default function AddTodo({ handleAddTodo, todos, handleDeleteTodo }) {
+export default function AddTodo({ handleAddTodo, todos, handleDeleteTodo, handleUpdateTodo }) {
   const [addedTodos, setAddedTodos] = useState(todos);
   const [todoInput, setTodoInput] = useState('');
   
@@ -48,6 +48,9 @@ function handleDisplayingTodoList(event) {
         <button onClick={handleDisplayingTodoList} type="button" className="btn-floating btn-large waves-effect waves-light green" href=""><i class="material-icons">add</i></button> <br/>
           <h3 className="left-to-do">{addedTodos.filter(todo => !todo.complete).length} left to do</h3>
         <button class="btn waves-effect waves-light" type="submit" name="action">Post List
+        <i class="material-icons right">send</i>
+        </button>
+        <button class="btn waves-effect waves-light" type="submit" onClick={handleUpdateTodo} name="action">Update List
         <i class="material-icons right">send</i>
         </button>
       </form>
