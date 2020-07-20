@@ -42,7 +42,7 @@ function handleDisplayingTodoList(event) {
 
   return (
     <>
-      <h2 className="get-done">Get Done List</h2>
+      <h2 className="get-done">Things to Get Done</h2>
       <form onSubmit={handleSubmit}>
       <TodoList todos={addedTodos} toggleTodo={toggleTodo} />
         <input size="20" className="todo-input" onChange={handleChange} value={todoInput} type="text" />

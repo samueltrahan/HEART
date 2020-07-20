@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SingleWorkout from '../../pages/Workouts/SingleWorkout';
 import SingleCardioWorkout from '../../pages/Cardio/SingleCardioWorkout'
+import './WorkoutCard.css'
 
 export default function WorkoutCard({ workout, handleDeleteWorkout }) {
   return (
     <>
       <div className="row">
         <div className="col s12 m6">
-          <div className="card blue-grey darken-1">
+          <div className="card transparent">
             <div className="card-content white-text">
               <span className="card-title">{workout.name}</span>
               <p>

@@ -6,7 +6,7 @@ import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 export default function WorkoutList(props) {
   return (
     <>
-      <div>
+      <div className="workoutcard-list">
         {props.workouts.map(workout => (
           <WorkoutCard
             key={workout._id}

@@ -5,11 +5,11 @@ const NavBar = ({ user, handleLogout }) => {
     <>
         <nav>
             <div className="nav-wrapper">
-            <a className=" left" href="/"><img src="" height='66' alt="netflix-font" border="0"/></a>
+            <a className=" left" href="/"><img src="/heart.png" height='66' alt="netflix-font" border="0"/></a>
                 <ul id="nav-mobile" className="right">
-                    <li><a href="/workouts/add" className="nav-link-b">Add a Workout</a></li>
-                    <li><a href="/workouts" className="nav-link-b"><img src="./public/gym.png" alt=""/>Workout List</a></li>
-                    <li><a href="/todos/add" className="nav-link-b">Get Done List</a></li>
+                    <li><a href="/workouts/add" className="nav-link-b"><i className="material-icons left large">directions_run</i>Add Workout</a></li>
+                    <li><a href="/workouts" className="nav-link-b"><img src="./public/gym.png" alt=""/><i className="material-icons left small">forum</i>Workout List</a></li>
+                    <li><a href="/todos/add" className="nav-link-b"><i className="material-icons left small">format_list_numbered</i>Get Done</a></li>
                     <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>
                     <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
                 </ul>
