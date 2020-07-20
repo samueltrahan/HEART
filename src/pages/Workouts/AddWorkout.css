@@ -2,10 +2,10 @@
     display: -webkit-inline-flex;
 }
 
-.workout-form {
+/* .workout-form {
     width: 300px;
     margin: 0 auto;
-}
+} */
 
 .reps {
     text-align: center;
@@ -38,4 +38,34 @@ body {
     -o-column-width: 150px;
     -ms-column-width: 150px;
     column-width: 150px;
+}
+
+.workout-name {
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.workouts {
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.cardio-work {
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.workout-title {
+    color: white;
+    text-shadow: 4px 4px 4px black;
+}
+
+.name-workout {
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.reps {
+    color: white;
+    text-shadow: 3px 3px 3px black;
 }

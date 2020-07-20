@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CardioWorkouts.css'
 
 const CardioWorkouts = ({ addCardio, name }) => {
   const [distance, setDistance] = useState('');
@@ -9,8 +10,9 @@ const CardioWorkouts = ({ addCardio, name }) => {
         <p>
           <label className="add-btn">
             <span>
-              <h6>{name}</h6>
+              <h6 className="cardio-workout">{name}</h6>
               <input
+                className="distance-input"
                 type="text"
                 onChange={event => setDistance(event.target.value)}
                 value={distance}

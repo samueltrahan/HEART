@@ -10,7 +10,7 @@ const Workout = ({ addStrengthExercise, name }) => {
         <p>
           <label className="add-btn">
             <span>
-              <h6>{name}</h6>
+              <h6 className="name-workout">{name}</h6>
               <input
                 className="reps"
                 onChange={event => setReps(event.target.value)}

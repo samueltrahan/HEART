@@ -73,19 +73,19 @@ class AddWorkout extends Component {
                 onChange={this.handleChange}
                 required
               />
-              <label htmlFor="workout_name">Workout Name</label>
-            <h6>Workouts</h6>
+              <label className="workout-name" htmlFor="workout_name">Workout Name</label>
+            <h5 className="workouts">Workouts</h5>
           <AddedStrengthTrainings AddedStrengthExercise={this.state.formData.strengthTraining} handleChange={this.handleChange}/>
-          <h6>Cardio</h6>
+          <h5 className="cardio-work">Cardio</h5>
           <AddedCardio addedCardio={this.state.formData.cardio} handleChange={this.handleChange}/>
-          <h3>Workouts</h3>
+          <h3 className="workout-title">Workouts</h3>
           <div className="strengthExercise">
           <StrengthExercises
             addStrengthExercise={this.addStrengthExercise}
             handleChange={this.handleChange}
           />
           </div>
-          <h3>Cardio</h3>
+          <h3 className="workout-title">Cardio</h3>
           <div className="cardio">
           <Cardio addCardio={this.addCardio}/>
           </div>
