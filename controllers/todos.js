@@ -4,6 +4,7 @@ const Todo = require('../models/todoList');
 module.exports = {
     create,
     index,
+    delete: deleteTodo,
 }
 
 function create(req, res) {
@@ -16,6 +17,12 @@ function create(req, res) {
 function index(req, res) {
     console.log('got it')
     Todo.find({})
+    .then(todo => {res.json(todo)})
+    .catch(err => {res.json(err)})
+}
+
+function deleteTodo(req, res) {
+    Todo.findById(req.params.id)
     .then(todo => {res.json(todo)})
     .catch(err => {res.json(err)})
 }

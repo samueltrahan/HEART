@@ -51,6 +51,13 @@ class App extends Component {
     }), () => this.props.history.push('/workouts'))
   }
 
+  handleDeleteTodo = async id => {
+    await todoAPI.deleteTodo(id);
+    this.setState(state => ({
+      todos: state.todos.filter(todo => todo._id !== id)
+    }), () => this.props.history.push('/todos/add'))
+  }
+
   handleUpdateWorkout = async updatedWorkoutData => {
     const updatedWorkout = await workoutAPI.update(updatedWorkoutData)
     const newWorkoutArray = this.state.workouts.map(workout =>
@@ -107,7 +114,7 @@ class App extends Component {
         } />
         <Route exact path='/todos/add' render={() =>
           userService.getUser() ?
-        <AddTodo todos={this.state.todos} handleAddTodo={this.handleAddTodo}
+        <AddTodo todos={this.state.todos} handleAddTodo={this.handleAddTodo} handleDeleteTodo={this.handleDeleteTodo}
         />
         :
         <Redirect to='/login' />

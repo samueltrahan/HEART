@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Todo({todo, toggleTodo}) {
+export default function Todo({todo, toggleTodo, handleDeleteTodo}) {
     function handleTodoClick() {
         toggleTodo(todo.id)
     }
@@ -9,7 +9,10 @@ export default function Todo({todo, toggleTodo}) {
             <label>
                 <input type="checkbox" checked={todo.complete} onChange={handleTodoClick}/>
             <span className="todo-item">{todo.name}</span>
-            </label>
+            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" className="btn red" onClick={() => handleDeleteTodo(todo._id)}>
+                    <i className="material-icons left small">delete</i> 
+            </button>
         </div>
     )
 }

@@ -6,6 +6,7 @@ const todosCtrl = require('../../controllers/todos');
 router.get('/', todosCtrl.index)
 router.use(require('../../config/auth'))
 router.post('/', checkAuth, todosCtrl.create);
+router.delete('/:id', checkAuth, todosCtrl.delete)
 
 function checkAuth(req, res, next) {
     if (req.user) return next();
