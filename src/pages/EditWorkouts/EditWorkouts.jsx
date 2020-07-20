@@ -47,15 +47,13 @@ export default function EditWorkouts(props) {
               <p>
                 <label className="add-btn">
                   <span>
-                    <h3>{workout.name}</h3>
+                    <h3 className="workout-name">{workout.name}</h3>
                     <DisplayExercise
                       workout={workout}
                       handleChange={handleChange}
                       handleSubmit={handleSubmit}
                     />
-                    <button type="submit">
-                      Update Workout
-                    </button>
+                   <button className="waves-effect waves-light btn"><i class="material-icons left">update</i>Update Workout</button>
                   </span>
                 </label>
               </p>

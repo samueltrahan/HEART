@@ -5,8 +5,8 @@ const SingleWorkout = ({name, distance}) => {
 
     return (
         <div className="cardioworkout">
-            <strong>{name} </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Distance: <strong>{distance}</strong>
+           <div className="cardio-name"><strong>{name} </strong></div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <div className="cardio-distance">Distance: <strong>{distance}</strong></div> 
             <br />
         </div>
         

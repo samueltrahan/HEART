@@ -3,7 +3,7 @@ const router = express.Router();
 const workoutCtrl = require('../../controllers/workouts');
 
 
-router.get('/',  workoutCtrl.index)
+router.get('/', workoutCtrl.index)
 
 router.use(require('../../config/auth'))
 
@@ -15,7 +15,9 @@ router.put('/:id', checkAuth, workoutCtrl.update);
 
 function checkAuth(req, res, next) {
     if (req.user) return next();
-    return res.status(401).json({msg: 'Not Authorized'});
+    return res.status(401).json({
+        msg: 'Not Authorized'
+    });
 }
 
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 const AddCardio = ({ name, distance, handleChange }) => (
   <>
-    <div onChange={handleChange}>Name: {name}</div>
-    <div onChange={handleChange}>Distance: {distance}</div>
+    <div className="cardio-name" onChange={handleChange}>Name: {name}</div>
+    <div className="cardio-distance"onChange={handleChange}>Distance: {distance}</div>
   </>
 );
 
