@@ -11,6 +11,7 @@ import * as todoAPI from '../../services/todo-api'
 import WorkoutListPage from '../WorkoutList/WorkoutListPage'
 import AddTodo from '../Todo/AddTodo';
 import EditWorkout from '../EditWorkouts/EditWorkouts'
+import LandingPage from '../LandingPage/LandingPage'
 
 class App extends Component {
   state = {
@@ -87,6 +88,9 @@ class App extends Component {
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
+        <Route exact path='/' render={({ history }) => 
+        <LandingPage />
+        } />
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
             history={history}
