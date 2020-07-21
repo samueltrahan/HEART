@@ -13,6 +13,7 @@ import AddTodo from '../Todo/AddTodo';
 import EditWorkout from '../EditWorkouts/EditWorkouts'
 import LandingPage from '../LandingPage/LandingPage'
 import {getRecipeData} from '../../services/api-calls'
+import Recipes from '../Recipes/Recipes'
 
 class App extends Component {
   state = {
@@ -143,6 +144,9 @@ class App extends Component {
         }
         }  
         />
+        <Route exact path='/recipes' render={() => 
+          <Recipes />
+        } />
       </>
     );
   }

@@ -8,6 +8,7 @@ const NavBar = ({ user, handleLogout }) => {
             <div className="nav-wrapper">
             <a className=" left" href="/"><img src="/heart-logo5.png" height='70' alt="netflix-font"/></a>
                 <ul id="nav-mobile" className="right">
+                    <li><a href="/recipes" className="nav-link-b"><i className="material-icons left large">local_dining</i>Recipes</a></li>
                     <li><a href="/workouts/add" className="nav-link-b"><i className="material-icons left large">directions_run</i>Add Workout</a></li>
                     <li><a href="/workouts" className="nav-link-b"><i className="material-icons left small">forum</i>Workout List</a></li>
                     <li><a href="/todos/add" className="nav-link-b"><i className="material-icons left small">format_list_numbered</i>Get Done</a></li>
