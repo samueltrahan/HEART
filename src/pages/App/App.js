@@ -12,7 +12,6 @@ import WorkoutListPage from '../WorkoutList/WorkoutListPage'
 import AddTodo from '../Todo/AddTodo';
 import EditWorkout from '../EditWorkouts/EditWorkouts'
 import LandingPage from '../LandingPage/LandingPage'
-import {getRecipeData} from '../../services/api-calls'
 import Recipes from '../Recipes/Recipes'
 
 class App extends Component {
@@ -75,6 +74,7 @@ class App extends Component {
   }
 
   handleUpdateTodo = async updatedTodoData => {
+    console.log(updatedTodoData)
     const updatedTodo = await todoAPI.update(updatedTodoData)
     const newTodoArray = this.state.todos.map(todo => 
     todo._id === updatedTodo._id ? updatedTodo : todo)

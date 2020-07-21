@@ -1,31 +1,33 @@
 import React, {useState, useEffect} from 'react'
-import {getRecipeData} from '../../services/api-calls';
 import Recipe from '../Recipes/Recipe'
+import './recipes.css'
 
 
 export default function Recipes() {
     const [recipes, setRecipes] = useState([]);
     const [search, setSearch] = useState('');
-    const [query, setQuery] = useState('')
+   
 
-useEffect(() => {
-    getRecipeData(query);
-}, [query])
+const getRecipes = async () => {
+    const response = await fetch(`https://api.edamam.com/search?q=healthy ${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`)
+    const data = await response.json();
+    return data.hits
+}
 
 function updateSearch(event) {
     setSearch(event.target.value)
 } 
 
-function getSearch(event) {
+const getSearch = async (event) => {
     event.preventDefault();
-    setQuery(search);
-    setSearch('')
+   const fetchedRecipes = await getRecipes();
+   setRecipes(fetchedRecipes)
 }
 
     return (
-        <div>
+        <div className="recipes-list">
             <form onSubmit={getSearch} className="search-form">
-        <input className='search-bar' type="text" value={search} onChange={updateSearch}/>
+        <input className='search-bar' type="text" value={search} onChange={updateSearch}/> <br/>
         <button class="btn waves-effect waves-light" type="submit" name="action">Search Recipes
     <i class="material-icons right">send</i>
   </button>

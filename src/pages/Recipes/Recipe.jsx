@@ -1,9 +1,9 @@
 import React from 'react'
-import style from './recipe.module.css'
+import './recipes.css'
 
 export default function Recipe({title, calories, image, ingredients}) {
     return (
-        <div className={style.recipe}>
+        <div className='recipe'>
         <h1>{title}</h1>
         <ul>
             {ingredients.map(ingredient => (
@@ -11,7 +11,7 @@ export default function Recipe({title, calories, image, ingredients}) {
             ))}
         </ul>
         <p> Calories: {calories}</p>
-        <img className={style.image} src={image} alt=""/>
+        <img className='image' src={image} alt=""/>
     </div>
     )
 }

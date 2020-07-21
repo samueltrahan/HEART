@@ -27,7 +27,7 @@ export function deleteTodo(id) {
 }
 
 export function update(todo) {
-    return fetch(`${BASE_URL}${todo._id}`, {
+    return fetch(`${BASE_URL}${todo.id}`, {
         method: 'PUT',
         headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
         body: JSON.stringify(todo)

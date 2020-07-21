@@ -20,7 +20,6 @@ export default function WorkoutCard({ workout, handleDeleteWorkout }) {
                 <SingleCardioWorkout name={cardioWorkout.name} distance={cardioWorkout.distance}/>
                 ))}
               </p>
-              {workout.createdAt}
             </div>
             <div className="card-action"></div>
           <button type="submit" className="btn red" onClick={() => handleDeleteWorkout(workout._id)}>

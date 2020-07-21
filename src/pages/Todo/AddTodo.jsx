@@ -47,14 +47,11 @@ function handleDisplayingTodoList(event) {
     <>
       <h2 className="get-done">Things to Get Done</h2>
       <form onSubmit={handleSubmit}>
-      <TodoList todos={addedTodos} toggleTodo={toggleTodo} handleDeleteTodo={handleDeleteTodo} />
+      <TodoList todos={addedTodos} toggleTodo={toggleTodo} handleDeleteTodo={handleDeleteTodo} handleUpdateTodo={handleUpdateTodo}/>
         <input size="20" className="todo-input" onChange={handleChange} value={todoInput} type="text" />
         <button onClick={handleDisplayingTodoList} type="button" className="btn-floating btn-large waves-effect waves-light green" href=""><i class="material-icons">add</i></button> <br/>
           <h3 className="left-to-do">{addedTodos.filter(todo => !todo.complete).length} left to do</h3>
         <button class="btn waves-effect waves-light" type="submit" name="action">Post List
-        <i class="material-icons right">send</i>
-        </button>
-        <button class="btn waves-effect waves-light" type="submit" onClick={handleUpdateTodo} name="action">Update List
         <i class="material-icons right">send</i>
         </button>
       </form>

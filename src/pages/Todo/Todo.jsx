@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-export default function Todo({todo, toggleTodo, handleDeleteTodo}) {
+export default function Todo({todo, toggleTodo, handleDeleteTodo, handleUpdateTodo}) {
     function handleTodoClick() {
         toggleTodo(todo.id)
     }
+
+    useEffect(() => {
+        handleUpdateTodo(todo)
+    }, [todo, handleUpdateTodo])
+
     return (
         <div>
             <label>
