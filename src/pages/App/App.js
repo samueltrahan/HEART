@@ -12,6 +12,7 @@ import WorkoutListPage from '../WorkoutList/WorkoutListPage'
 import AddTodo from '../Todo/AddTodo';
 import EditWorkout from '../EditWorkouts/EditWorkouts'
 import LandingPage from '../LandingPage/LandingPage'
+import {getRecipeData} from '../../services/api-calls'
 
 class App extends Component {
   state = {
