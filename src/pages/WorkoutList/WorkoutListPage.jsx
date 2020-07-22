@@ -12,6 +12,7 @@ export default function WorkoutList(props) {
             key={workout._id}
             workout={workout}
             handleDeleteWorkout={props.handleDeleteWorkout}
+            user={props.user}
           />
         ))}
       </div>

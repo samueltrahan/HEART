@@ -74,7 +74,6 @@ class App extends Component {
   }
 
   handleUpdateTodo = async updatedTodoData => {
-    console.log(updatedTodoData)
     const updatedTodo = await todoAPI.update(updatedTodoData)
     const newTodoArray = this.state.todos.map(todo => 
     todo._id === updatedTodo._id ? updatedTodo : todo)
@@ -129,6 +128,7 @@ class App extends Component {
         <WorkoutListPage 
         workouts={this.state.workouts}
         handleDeleteWorkout={this.handleDeleteWorkout}
+        user={this.state.user}
         />
         } />
         <Route exact path='/todos/add' render={() =>

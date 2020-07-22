@@ -36,7 +36,6 @@ function show(req, res) {
 }
 
 function update(req, res) {
-    console.log(req.body)
     Workout.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(workout => {res.json(workout)})
     .catch(err => {res.json(err)})

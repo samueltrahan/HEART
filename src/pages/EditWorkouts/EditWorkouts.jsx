@@ -12,7 +12,6 @@ export default function EditWorkouts(props) {
 
 
   function handleSubmit(event) {
-      console.log(exercise)
       event.preventDefault();
     props.handleUpdateWorkout({setExercise: exercise});
   }
@@ -53,7 +52,7 @@ export default function EditWorkouts(props) {
                       handleChange={handleChange}
                       handleSubmit={handleSubmit}
                     />
-                   <button className="waves-effect waves-light btn"><i class="material-icons left">update</i>Update Workout</button>
+                   <button type="submit" className="waves-effect waves-light btn"><i class="material-icons left">update</i>Update Workout</button>
                   </span>
                 </label>
               </p>
