@@ -13,7 +13,12 @@ Heart is a health and lifestyle application used to keep track of workouts and t
 ---
 # Technology Used
 
-
+MongoDB
+Express
+React
+Node.js
+HTML
+CSS
 
 ---
 # Getting Started
